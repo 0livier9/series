@@ -20,6 +20,15 @@ Créer le fichier `.env.local` :
 DATABASE_URL="mysql://root:@127.0.0.1:3306/series?serverVersion=8&charset=utf8mb4"
 ```
 
+Créer la base de données :
+```shell
+php bin\console doctrine:database:drop --force
+php bin\console doctrine:database:create
+php bin\console doctrine:migration:migrate
+php bin\console doctrine:fixtures:load
+```
+
+
 Démarrer la compilation des assets avec NPM :
 
 ```shell
