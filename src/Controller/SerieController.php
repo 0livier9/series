@@ -28,11 +28,17 @@ class SerieController extends AbstractController
     /**
      * @Route("/{id}", name="serie_show", requirements={"id"="\d+"})
      */
-    public function show(int $id): Response
+    public function show(int $id, SerieRepository $serieRepository): Response
     {
-        // TODO: Récupérer en base de données la série ayant l'id $id
+        // Récupérer en base de données la série ayant l'id $id
+        $serie = $serieRepository->find($id); // SELECT * FROM serie WHERE id = $id
+
+        if ($serie === null) {
+            throw $this->createNotFoundException("Cette série n'existe pas !");
+        }
+
         return $this->render('serie/show.html.twig', [
-            'id' => $id
+            'serie' => $serie
         ]);
     }
 
