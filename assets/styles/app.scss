@@ -1,10 +1,22 @@
+@import "variables";
 @import "header";
+@import "pages/serie-show";
+
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Crimson+Text&display=swap');
 
 body {
-    background: linear-gradient(#000000, #132135);
+    background: linear-gradient(#000000, $color-primary);
     background-attachment: fixed;
-    color: #EEE;
+    color: $color-light;
     font-family: 'Crimson Text', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Chela One', serif;
+}
+
+h1 {
+    font-size: 3rem;
 }
 
 .container {
@@ -19,7 +31,7 @@ a {
 }
 
 a:hover {
-    color: #BC956B;
+    color: $color-secondary;
 }
 
 img {
