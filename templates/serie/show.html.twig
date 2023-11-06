@@ -22,5 +22,20 @@
             </ul>
         </header>
         <p>{{ serie.overview }}</p>
+
+        <section class="serie-seasons">
+            {% for season in serie.seasons %}
+                <article>
+                    <img src="{{ asset('images/posters/seasons/' ~ season.poster) }}" alt="{{ season.number }}">
+                    <div>
+                        <h4>Saison {{ season.number }}</h4>
+                        {% if season.overview %}
+                            <p>{{ season.overview }}</p>
+                        {% endif %}
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+
     </div>
 {% endblock %}
