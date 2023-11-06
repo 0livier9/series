@@ -30,7 +30,7 @@
                     <div>
                         <h4>Saison {{ season.number }}</h4>
                         {% if season.overview %}
-                            <p>{{ season.overview }}</p>
+                            <p>{{ season.overview|slice(0, 100) }}</p>
                         {% endif %}
                     </div>
                 </article>
