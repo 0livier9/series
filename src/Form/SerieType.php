@@ -6,6 +6,7 @@ use App\Entity\Serie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -28,8 +29,8 @@ class SerieType extends AbstractType
                 'multiple' => false,
                 'expanded' => false
             ])
-            ->add('vote')
-            ->add('popularity')
+            ->add('vote', NumberType::class, ['html5' => true])
+            ->add('popularity', NumberType::class, ['html5' => true])
             ->add('genres')
             ->add('firstAirDate', DateType::class, [
                 'html5' => true,
@@ -39,8 +40,7 @@ class SerieType extends AbstractType
             ->add('backdrop')
             ->add('poster')
             ->add('tmdbId')
-            ->add('dateCreated')
-            ->add('dateModified')
+            // ->add('submit', SubmitType::class)
         ;
     }
 
