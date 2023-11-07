@@ -72,5 +72,14 @@ class SerieController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/delete/{id}", name="serie_delete", requirements={"id"="\d+"})
+     */
+    public function delete(Serie $serie, SerieRepository $serieRepository)
+    {
+        $serieRepository->remove($serie, true);
+        return $this->redirectToRoute('serie_index');
+    }
+
 
 }
